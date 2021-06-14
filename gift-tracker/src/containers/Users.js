@@ -49,7 +49,7 @@ class Users extends Component {
 
         return (
             <div>
-                <h1>Master Users List</h1>
+                <h1>Friend/Family List</h1>
                 {usersList}
                 {this.state.displayForm ? <UserForm addNewUser={this.addNewUser}/>: <button onClick={this.toggleDisplayForm} className="submit">Add User</button>}
             </div>

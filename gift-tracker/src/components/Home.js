@@ -5,7 +5,7 @@ import React from 'react'
         <div>
             <h1>My Gift Idea Tracker</h1>
             <hr/>
-            <p>This application allows a user track gift ideas for their friends and family.</p>
+            <p>This application allows a user to track gift ideas for their friends and family.</p>
         </div>
     )
 }

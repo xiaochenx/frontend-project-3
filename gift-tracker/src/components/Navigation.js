@@ -30,7 +30,7 @@ const link = {
                 activeStyle={{
                     background: 'red'
                 }}
-            >Users</NavLink>
+            >Loved ones</NavLink>
         </div>
     )
 }
