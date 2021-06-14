@@ -6,7 +6,7 @@ import GiftForm from './GiftForm'
     const [user, setUser] = useState({
         gifts: []
     })
-    // const [userCost, setUserCost] = useState(0)
+   
     const [giftFormFlag, setGiftFormFlag] = useState(false)
 
     useEffect(() => {
@@ -58,24 +58,6 @@ import GiftForm from './GiftForm'
         })
     }
 
-    // const editGift = (gift) =>{
-    //     fetch(`http://localhost:9393/users/${user.id}/gifts/${gift.id}`,{
-    //       method: "PATCH",
-    //       headers:{
-    //         "Content-Type": "application/json",
-    //         "Accept": "application/json"
-    //       },
-    //       body:JSON.stringify(gift)
-    //     })
-    //     .then(resp => resp.json())
-    //     .then(data =>{
-    //         const newGifts = user.gifts.map(e => e.id !=data.id ? e : data)
-    //         setUser({
-    //             ...user,
-    //             gifts: newGifts
-    //         })
-    //     })
-    // }
 
   
 
