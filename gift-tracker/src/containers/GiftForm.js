@@ -22,7 +22,7 @@ class GiftForm extends Component {
     render() {
         return (
             <div>
-               <form className="add-new-trip" onSubmit={this.handleSubmit}>
+               <form onSubmit={this.handleSubmit}>
                     <h3>Add New Gift</h3>
                     <input type="text" name="name" value= {this.state.name} placeholder="Amazing gift idea!" onChange={this.handleChange} />
                     <br/>

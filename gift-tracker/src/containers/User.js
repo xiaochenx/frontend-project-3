@@ -10,9 +10,10 @@ import GiftForm from './GiftForm'
     const [giftFormFlag, setGiftFormFlag] = useState(false)
 
     useEffect(() => {
-        fetch(`http://localhost:9292/users/${props.match.params.id}`)
+        fetch(`http://localhost:9393/users/${props.match.params.id}`)
         .then(r => r.json())
         .then(data => {
+            console.log(data)
             setUser(data)
         })
     }, [props.match.params.id])
@@ -23,7 +24,7 @@ import GiftForm from './GiftForm'
     }
 
     const addNewGift = (gift) => {
-        fetch(`http://localhost:9292/users/${user.id}/gifts`,{
+        fetch(`http://localhost:9393/users/${user.id}/gifts`,{
           method: "POST",
           headers:{
             "Content-Type": "application/json",
@@ -42,7 +43,7 @@ import GiftForm from './GiftForm'
     }
 
     const deleteGift = (id) =>{
-        fetch(`http://localhost:9292/users/${user.id}/gifts/${id}`,{
+        fetch(`http://localhost:9393/users/${user.id}/gifts/${id}`,{
           method: "DELETE",
           headers:{
             "Content-Type": "application/json"
@@ -58,7 +59,7 @@ import GiftForm from './GiftForm'
     }
 
     // const editGift = (gift) =>{
-    //     fetch(`http://localhost:9292/users/${user.id}/gifts/${gift.id}`,{
+    //     fetch(`http://localhost:9393/users/${user.id}/gifts/${gift.id}`,{
     //       method: "PATCH",
     //       headers:{
     //         "Content-Type": "application/json",
@@ -83,9 +84,12 @@ import GiftForm from './GiftForm'
     return (
         <div>
             <br/>
-            <h1>{user.name}</h1>
-            <h3>Below Are All Your Gift Ideas:</h3>
+            <h1>Below Are All Your Gift Ideas</h1>
+            <h1>for</h1>
+            <br />
+            <h2>{user.name}</h2>
             <br/>
+            <hr/>
             {gifts}
             <br/>
             {giftFormFlag ? <GiftForm newGift={addNewGift} user={user}/> : <button onClick={toggleForm} className="submit">Add gift</button>}
