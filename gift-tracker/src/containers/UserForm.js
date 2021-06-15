@@ -1,37 +1,35 @@
-import React, { Component } from 'react'
+import React,{useState} from 'react'
 
- class UserForm extends Component {
-    state ={
-        name:''
-       
+
+const UserForm = ({addNewUser}) => {
+    const [name, setName] = useState([])
+
+
+    const handleChange = (event) =>{
+        console.log(event)
+        setName(event.target.value)
     }
 
-    handleChange = (event) =>{
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
-
-    handleSubmit = (event) => {
+   const handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addNewUser({
-            name: this.state.name   
+        console.log(event)
+        addNewUser({
+           name: name   
         })
     }
-
-    render() {
+    
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={handleSubmit}>
                 <label for="">Name: </label> <br />
-                    <input type="text" name="name" value= {this.state.name} placeholder="Enter your friend's name" onChange={this.handleChange} />
+                    <input type="text" name="name" value= {name} placeholder="Enter your friend's name" onChange={handleChange} />
                     <br/>
                     <br/>
                     <input type="submit" />
                 </form>
             </div>
         )
-    }
+    
 }
 
 export default UserForm
