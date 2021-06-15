@@ -1,37 +1,33 @@
-import React, { Component } from 'react'
 
-class GiftForm extends Component {
-    state ={
-        name:''
-    }
+import React,{useState} from 'react'
 
-    handleChange = (event) =>{
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
+const GiftForm = ({newGift}) => {
+    const [name, setName] = useState([])
 
-    handleSubmit = (event) => {
+    const handleChange = (event) =>{
+        setName(event.target.value)
+           }
+
+    const handleSubmit = (event) => {
         event.preventDefault()
-        this.props.newGift({
-            name: this.state.name,
-            
+        newGift({
+            name: name,     
         })
     }
 
-    render() {
+   
         return (
             <div>
-               <form onSubmit={this.handleSubmit}>
+               <form onSubmit={handleSubmit}>
                     <h3>Add New Gift</h3>
-                    <input type="text" name="name" value= {this.state.name} placeholder="Amazing gift idea!" onChange={this.handleChange} />
+                    <input type="text" name="name" value= {name} placeholder="Amazing gift idea!" onChange={handleChange} />
                     <br/>
                     <br/>
                     <input type="submit" name="submit" value="Add Idea!" />
                 </form>
             </div>
         )
-    }
+    
 }
 export default GiftForm
 
